@@ -255,7 +255,7 @@ export default function Home() {
                 {
                   icon: Mail,
                   label: 'Email',
-                  href: 'mailto:anagha2004@gmail.com',
+                  href: 'mailto:mr.anagha2004@gmail.com',
                 },
                 {
                   icon: Linkedin,
