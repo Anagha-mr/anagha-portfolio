@@ -46,7 +46,7 @@ export default function Home() {
     },
     {
       title: 'Meetrix',
-      description: 'Building an intelligent meetup coordination platform (Meetrix) using geospatial algorithms and mapping APIs to compute fair central meeting points and suggest venues in real time.',
+      description: 'Built an intelligent meetup coordination platform (Meetrix) using geospatial algorithms and mapping APIs to compute fair central meeting points and suggest venues in real time.',
       accent: 'from-red-600/20 to-purple-600/20',
     },
     {
@@ -104,7 +104,7 @@ export default function Home() {
             <div className="space-y-8 animate-slideInLeft">
               <div className="space-y-6">
                 <h1 className="font-jacques text-6xl md:text-7xl font-bold leading-tight">
-                  Welcome to my Portfolio
+                  Portfolio
                 </h1>
                 <p className="font-inter text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl">
                   A Computer Science student specializing in Artificial Intelligence and Machine learning. I love blending technology, creativity, and community impact to build meaningful digital experiences.
@@ -255,17 +255,17 @@ export default function Home() {
                 {
                   icon: Mail,
                   label: 'Email',
-                  href: 'mailto:anagha@example.com',
+                  href: 'mailto:anagha2004@gmail.com',
                 },
                 {
                   icon: Linkedin,
                   label: 'LinkedIn',
-                  href: 'https://linkedin.com',
+                  href: 'https://www.linkedin.com/in/anagha-m-r-70b969276',
                 },
                 {
                   icon: Github,
                   label: 'GitHub',
-                  href: 'https://github.com',
+                  href: 'https://github.com/Anagha-mr',
                 },
               ].map((contact, i) => {
                 const Icon = contact.icon;
