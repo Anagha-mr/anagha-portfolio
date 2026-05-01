@@ -151,7 +151,8 @@ export default function Home() {
             <div className="space-y-6 animate-fadeInUp">
               <h2 className="font-jacques text-5xl md:text-6xl font-bold">About</h2>
               <p className="font-inter text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl">
-                I'm a motivated B.Tech CSE (AI & ML) student with strong skills in Java, Python, C/C++, Data Structures, and UI design. Professional student worker with proven experience in academic and administrative tasks. Strong focus on team collaboration and achieving results, with adaptability to changing needs. Skilled in time management, communication, and problem-solving. Reliable and prepared to contribute effectively in dynamic environment.
+                Computer Science undergraduate specializing in Artificial Intelligence and Machine Learning, with experience building scalable, data-driven applications. Skilled in developing end-to-end systems using generative AI, computer vision, and optimization techniques to solve real-world problems.
+Proficient in Python, TensorFlow, OpenCV, and modern generative AI frameworks such as Stable Diffusion, CLIP, and ControlNet, with a strong focus on system design, automation, and enhancing user experience.
               </p>
             </div>
           </div>
