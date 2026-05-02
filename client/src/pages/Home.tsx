@@ -107,7 +107,7 @@ export default function Home() {
                   Portfolio
                 </h1>
                 <p className="font-inter text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl">
-                  A Computer Science student specializing in Artificial Intelligence and Machine learning. I love blending technology, creativity, and community impact to build meaningful digital experiences.
+                  AI & ML-focused Computer Science student building intelligent, user-centric applications using generative AI and computer vision. Interested in designing efficient systems that solve real-world problems.
                 </p>
               </div>
 
