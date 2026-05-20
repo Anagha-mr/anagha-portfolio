@@ -112,8 +112,9 @@ const NAV_ITEMS = [
 
 const SKILLS = [
   'Python', 'TensorFlow', 'OpenCV', 'Stable Diffusion',
-  'CLIP', 'ControlNet', 'MediaPipe', 'React', 'TypeScript',
-  'Supabase', 'SAM', 'Graph Algorithms',
+  'CLIP', 'ControlNet', 'MediaPipe', 'React', 'Next.js',
+  'TypeScript', 'Supabase', 'PostgreSQL', 'REST APIs',
+  'SAM', 'Graph Algorithms', 'Workflow Automation',
 ];
 
 const PROJECTS = [
@@ -132,7 +133,8 @@ const PROJECTS = [
   {
     title: 'Project Flow',
     subtitle: 'Project Management App',
-    role: 'Developer | 2026–Present',
+    role: 'Developer',
+    status: 'Ongoing',
     description:
       'Built a SaaS project management platform for small teams using Next.js, React, and Supabase, with workflow automation plus WhatsApp/email notifications for smarter team coordination.',
     tech: ['Next.js', 'React', 'Supabase', 'WhatsApp API'],
