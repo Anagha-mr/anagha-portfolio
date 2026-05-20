@@ -16,30 +16,30 @@ const EASE_IN_OUT  = [0.42, 0, 0.58, 1] as const;
 
 // ─── Animation Variants ──────────────────────────────────────
 const fadeUp = {
-  hidden: { opacity: 0, y: 36, filter: 'blur(4px)' },
+  hidden: { opacity: 0, y: 32, filter: 'blur(4px)' },
   show:   { opacity: 1, y: 0,  filter: 'blur(0px)',
-            transition: { duration: 0.75, ease: EASE_OUT_EXPO } },
+            transition: { duration: 0.8, ease: EASE_OUT_EXPO } },
 };
 
 const fadeIn = {
   hidden: { opacity: 0 },
-  show:   { opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
+  show:   { opacity: 1, transition: { duration: 0.65, ease: 'easeOut' } },
 };
 
 const slideRight = {
-  hidden: { opacity: 0, x: 56, filter: 'blur(6px)' },
+  hidden: { opacity: 0, x: 48, filter: 'blur(6px)' },
   show:   { opacity: 1, x: 0,  filter: 'blur(0px)',
-            transition: { duration: 0.9, ease: EASE_OUT_EXPO } },
+            transition: { duration: 0.95, ease: EASE_OUT_EXPO } },
 };
 
 const scaleIn = {
-  hidden: { opacity: 0, scale: 0.88, y: 8 },
-  show:   { opacity: 1, scale: 1,    y: 0,
-            transition: { duration: 0.48, ease: EASE_OUT_EXPO } },
+  hidden: { opacity: 0, scale: 0.9, y: 6 },
+  show:   { opacity: 1, scale: 1,   y: 0,
+            transition: { duration: 0.5, ease: EASE_OUT_EXPO } },
 };
 
 const stagger     = { hidden: {}, show: { transition: { staggerChildren: 0.10, delayChildren: 0.05 } } };
-const staggerFast = { hidden: {}, show: { transition: { staggerChildren: 0.055 } } };
+const staggerFast = { hidden: {}, show: { transition: { staggerChildren: 0.05 } } };
 const staggerSlow = { hidden: {}, show: { transition: { staggerChildren: 0.14 } } };
 
 // ─── Reduced-motion safe variants ────────────────────────────
@@ -81,21 +81,21 @@ function SectionLabel({ children, center = false }: { children: React.ReactNode;
   return (
     <motion.div
       variants={fadeIn}
-      className={`flex items-center gap-3 mb-4 ${center ? 'justify-center' : ''}`}
+      className={`flex items-center gap-3 mb-5 ${center ? 'justify-center' : ''}`}
     >
       <motion.div
-        variants={{ hidden: { scaleX: 0 }, show: { scaleX: 1, transition: { duration: 0.6, ease: EASE_OUT_EXPO } } }}
+        variants={{ hidden: { scaleX: 0 }, show: { scaleX: 1, transition: { duration: 0.65, ease: EASE_OUT_EXPO } } }}
         style={{ originX: 0 }}
-        className="h-px w-7 bg-gradient-to-r from-[#720C6B] to-[#E01A9E] flex-shrink-0"
+        className="h-px w-10 bg-gradient-to-r from-[#7B337E] to-[#6667AB] flex-shrink-0"
       />
-      <span className="font-body text-[10.5px] uppercase tracking-[0.24em] text-[#E01A9E] font-medium">
+      <span className="font-body text-[10.5px] uppercase tracking-[0.24em] text-[#6667AB] font-medium">
         {children}
       </span>
       {center && (
         <motion.div
-          variants={{ hidden: { scaleX: 0 }, show: { scaleX: 1, transition: { duration: 0.6, ease: EASE_OUT_EXPO } } }}
+          variants={{ hidden: { scaleX: 0 }, show: { scaleX: 1, transition: { duration: 0.65, ease: EASE_OUT_EXPO } } }}
           style={{ originX: 1 }}
-          className="h-px w-7 bg-gradient-to-l from-[#720C6B] to-[#E01A9E] flex-shrink-0"
+          className="h-px w-10 bg-gradient-to-l from-[#7B337E] to-[#6667AB] flex-shrink-0"
         />
       )}
     </motion.div>
@@ -126,10 +126,18 @@ const PROJECTS = [
     description:
       'Developing an AI-powered AR interior design app using CLIP, Stable Diffusion + ControlNet, SAM, and Supabase to generate intelligent room layouts and interactive design visualizations.',
     tech: ['CLIP', 'Stable Diffusion', 'ControlNet', 'SAM', 'Supabase'],
-    accent: 'from-violet-600/[0.13] to-pink-600/[0.13]',
-    border: 'border-violet-500/20',
-    iconGrad: 'from-violet-500 to-pink-500',
-    glowColor: 'rgba(139,92,246,0.12)',
+    iconGrad: 'from-[#7B337E] to-[#6667AB]',
+    glowColor: 'rgba(123,51,126,0.18)',
+  },
+  {
+    title: 'Project Flow',
+    subtitle: 'Project Management App',
+    role: 'Developer | 2026–Present',
+    description:
+      'Built a SaaS project management platform for small teams using Next.js, React, and Supabase, with workflow automation plus WhatsApp/email notifications for smarter team coordination.',
+    tech: ['Next.js', 'React', 'Supabase', 'WhatsApp API'],
+    iconGrad: 'from-[#6667AB] to-[#7B337E]',
+    glowColor: 'rgba(102,103,171,0.18)',
   },
   {
     title: 'Travel Planner',
@@ -137,10 +145,8 @@ const PROJECTS = [
     description:
       'Developed a Python-based travel planner using graph algorithms (Dijkstra) to find shortest routes and visualize location networks.',
     tech: ['Python', 'Dijkstra', 'Graph Algorithms'],
-    accent: 'from-purple-600/[0.13] to-pink-600/[0.13]',
-    border: 'border-purple-500/20',
-    iconGrad: 'from-[#720C6B] to-[#E01A9E]',
-    glowColor: 'rgba(114,12,107,0.12)',
+    iconGrad: 'from-[#7B337E] to-[#420D4B]',
+    glowColor: 'rgba(123,51,126,0.14)',
   },
   {
     title: 'Budget Tracker',
@@ -148,10 +154,8 @@ const PROJECTS = [
     description:
       'A budget tracker enabling users to monitor expenses with data persistence, eliminating redundancy and loss through JSON-based storage.',
     tech: ['Python', 'JSON'],
-    accent: 'from-pink-600/[0.13] to-rose-600/[0.13]',
-    border: 'border-pink-500/20',
-    iconGrad: 'from-pink-500 to-rose-500',
-    glowColor: 'rgba(236,72,153,0.12)',
+    iconGrad: 'from-[#9B6EAB] to-[#6667AB]',
+    glowColor: 'rgba(155,110,171,0.15)',
   },
   {
     title: 'Meetrix',
@@ -159,10 +163,8 @@ const PROJECTS = [
     description:
       'Intelligent meetup coordination platform using geospatial algorithms and mapping APIs to compute fair central meeting points and suggest venues in real time.',
     tech: ['Geospatial', 'Mapping APIs', 'Algorithms'],
-    accent: 'from-rose-600/[0.13] to-purple-600/[0.13]',
-    border: 'border-rose-500/20',
-    iconGrad: 'from-rose-500 to-purple-500',
-    glowColor: 'rgba(244,63,94,0.12)',
+    iconGrad: 'from-[#420D4B] to-[#7B337E]',
+    glowColor: 'rgba(66,13,75,0.22)',
   },
   {
     title: 'Controlled Interface',
@@ -170,10 +172,8 @@ const PROJECTS = [
     description:
       'Real-time hand-gesture recognition system using a neural network to control on-screen UI elements via webcam.',
     tech: ['Python', 'OpenCV', 'MediaPipe', 'TensorFlow'],
-    accent: 'from-purple-600/[0.13] to-violet-600/[0.13]',
-    border: 'border-purple-500/20',
-    iconGrad: 'from-[#720C6B] to-violet-600',
-    glowColor: 'rgba(114,12,107,0.12)',
+    iconGrad: 'from-[#7B337E] to-[#6667AB]',
+    glowColor: 'rgba(102,103,171,0.14)',
   },
 ] as const;
 
@@ -219,48 +219,54 @@ function ProjectCard({
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (reduceMotion) return;
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width)  * 100;
-    const y = ((e.clientY - rect.top)  / rect.height) * 100;
-    e.currentTarget.style.setProperty('--mx', `${x}%`);
-    e.currentTarget.style.setProperty('--my', `${y}%`);
+    e.currentTarget.style.setProperty('--mx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+    e.currentTarget.style.setProperty('--my', `${((e.clientY - rect.top)  / rect.height) * 100}%`);
   };
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 36 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
       transition={reduceMotion
         ? { duration: 0.2 }
-        : { duration: 0.6, delay: index * 0.07, ease: EASE_OUT_EXPO }}
-      whileHover={reduceMotion ? {} : { y: -7, transition: { duration: 0.32, ease: EASE_OUT_EXPO } }}
+        : { duration: 0.65, delay: index * 0.08, ease: EASE_OUT_EXPO }}
+      whileHover={reduceMotion ? {} : { y: -6, transition: { duration: 0.35, ease: EASE_OUT_EXPO } }}
       whileTap={{ scale: 0.99 }}
       onMouseMove={handleMouseMove}
-      className={`card-spotlight group relative flex flex-col gap-5 bg-gradient-to-br ${project.accent} border ${project.border} rounded-2xl p-7 overflow-hidden cursor-default
-        hover:border-[#E01A9E]/40 hover:shadow-xl hover:shadow-black/40
-        transition-[border-color,box-shadow] duration-350`}
-      style={{ '--glow': project.glowColor } as React.CSSProperties}
+      className="card-spotlight group relative flex flex-col gap-5
+        glass border border-[#7B337E]/16 rounded-2xl p-7 overflow-hidden cursor-default
+        hover:border-[#6667AB]/28 hover:shadow-2xl hover:shadow-[#210635]/70
+        transition-[border-color,box-shadow] duration-300"
     >
-      {/* inner glow that intensifies on hover */}
+      {/* always-on subtle top tint */}
       <div
-        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-        style={{ background: `radial-gradient(ellipse at 50% 0%, ${project.glowColor}, transparent 70%)` }}
+        className="absolute inset-x-0 top-0 h-36 pointer-events-none rounded-t-2xl opacity-40 group-hover:opacity-80 transition-opacity duration-400"
+        style={{ background: `linear-gradient(180deg, ${project.glowColor}, transparent)` }}
+      />
+
+      {/* mouse-tracking radial glow (full-card) */}
+      <div
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{ background: `radial-gradient(ellipse at 50% -10%, ${project.glowColor}, transparent 65%)` }}
       />
 
       {/* top row: icon + badges */}
       <div className="relative z-10 flex items-start justify-between gap-3">
         <div
-          className={`w-10 h-10 rounded-xl bg-gradient-to-br ${project.iconGrad} flex-shrink-0
-            shadow-lg shadow-black/30 group-hover:shadow-xl group-hover:scale-105 transition-transform duration-300`}
+          className={`w-11 h-11 rounded-xl bg-gradient-to-br ${project.iconGrad} flex-shrink-0
+            shadow-lg shadow-[#210635]/60 group-hover:scale-105 transition-transform duration-300`}
         />
         <div className="flex gap-1.5 flex-wrap justify-end">
           {project.featured && (
-            <span className="font-body text-[9px] uppercase tracking-[0.14em] px-2.5 py-1 rounded-full bg-[#E01A9E]/12 border border-[#E01A9E]/30 text-[#E01A9E] font-semibold">
+            <span className="font-body text-[9px] uppercase tracking-[0.14em] px-2.5 py-1 rounded-full
+              bg-[#6667AB]/10 border border-[#6667AB]/28 text-[#6667AB] font-semibold">
               Featured
             </span>
           )}
           {project.status && (
-            <span className="font-body text-[9px] uppercase tracking-[0.14em] px-2.5 py-1 rounded-full bg-emerald-500/8 border border-emerald-500/22 text-emerald-400 font-semibold flex items-center gap-1">
+            <span className="font-body text-[9px] uppercase tracking-[0.14em] px-2.5 py-1 rounded-full
+              bg-emerald-500/8 border border-emerald-500/20 text-emerald-400 font-semibold flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               {project.status}
             </span>
@@ -270,37 +276,39 @@ function ProjectCard({
 
       {/* title block */}
       <div className="relative z-10">
-        <h3 className="font-heading text-[1.3rem] font-bold leading-snug text-white/90 group-hover:text-white transition-colors duration-250">
+        <h3 className="font-heading text-[1.25rem] font-bold leading-snug text-[#F5D5E0]/90 group-hover:text-[#F5D5E0] transition-colors duration-300">
           {project.title}
         </h3>
         {project.subtitle && (
-          <p className="font-body text-xs text-[#E01A9E]/80 mt-0.5 font-medium tracking-wide">{project.subtitle}</p>
+          <p className="font-body text-[11px] text-[#6667AB] mt-1 font-medium tracking-wide">{project.subtitle}</p>
         )}
-        <p className="font-body text-[11px] text-gray-600 mt-1.5 uppercase tracking-[0.12em]">{project.role}</p>
+        <p className="font-body text-[10.5px] text-[#F5D5E0]/40 mt-1.5 uppercase tracking-[0.12em]">{project.role}</p>
       </div>
 
       {/* description */}
-      <p className="relative z-10 font-body text-[0.82rem] text-gray-400/90 leading-[1.72] flex-1">
+      <p className="relative z-10 font-body text-[0.82rem] text-[#F5D5E0]/60 leading-[1.75] flex-1">
         {project.description}
       </p>
 
       {/* tech tags */}
-      <div className="relative z-10 flex flex-wrap gap-1.5 pt-1">
+      <div className="relative z-10 flex flex-wrap gap-1.5">
         {project.tech.map((tag, i) => (
           <span
             key={i}
-            className="font-body text-[10px] font-medium px-2.5 py-[5px] rounded-full
-              bg-white/[0.04] border border-white/[0.08] text-gray-500
-              group-hover:border-white/[0.14] group-hover:text-gray-400 group-hover:bg-white/[0.06]
-              transition-all duration-300"
+            className="font-body text-[10px] font-medium px-2.5 py-1.5 rounded-full
+              bg-[#F5D5E0]/4 border border-[#F5D5E0]/8 text-[#F5D5E0]/45
+              group-hover:border-[#F5D5E0]/14 group-hover:text-[#F5D5E0]/62
+              transition-all duration-350"
           >
             {tag}
           </span>
         ))}
       </div>
 
-      {/* subtle bottom line accent */}
-      <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#E01A9E]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+      {/* bottom accent line */}
+      <div className="absolute bottom-0 left-8 right-8 h-px
+        bg-gradient-to-r from-transparent via-[#6667AB]/22 to-transparent
+        opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
     </motion.div>
   );
 }
@@ -336,17 +344,16 @@ export default function Home() {
     setMenuOpen(false);
   };
 
-  // Use simplified variants when motion is reduced
   const rv = reduceMotion ? makeReduced() : { fadeUp, fadeIn, slideRight, scaleIn };
 
   return (
-    <div className="w-full bg-[#111111] text-white overflow-x-hidden">
+    <div className="w-full bg-[#210635] text-[#F5D5E0] overflow-x-hidden">
       <AnimatedBackground />
 
       {/* grain overlay */}
       <div
         aria-hidden="true"
-        className="fixed inset-0 pointer-events-none z-[1] opacity-[0.016]"
+        className="fixed inset-0 pointer-events-none z-[1] opacity-[0.018]"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
           backgroundSize: '200px 200px',
@@ -360,10 +367,20 @@ export default function Home() {
           <motion.div
             initial={false}
             animate={scrolled
-              ? { backgroundColor: 'rgba(12,12,12,0.78)', backdropFilter: 'blur(24px) saturate(180%)' }
-              : { backgroundColor: 'rgba(0,0,0,0)',       backdropFilter: 'blur(0px)' }}
-            transition={{ duration: 0.4, ease: EASE_IN_OUT }}
-            className={`max-w-6xl mx-auto ${scrolled ? 'border border-white/[0.07] rounded-2xl shadow-2xl shadow-black/60' : ''}`}
+              ? {
+                  backgroundColor: 'rgba(20,3,38,0.88)',
+                  backdropFilter:  'blur(28px) saturate(160%)',
+                  borderColor:     'rgba(123,51,126,0.20)',
+                  boxShadow:       '0 20px 40px -12px rgba(33,6,53,0.80)',
+                }
+              : {
+                  backgroundColor: 'rgba(0,0,0,0)',
+                  backdropFilter:  'blur(0px)',
+                  borderColor:     'rgba(123,51,126,0)',
+                  boxShadow:       '0 0px 0px 0px rgba(33,6,53,0)',
+                }}
+            transition={{ duration: 0.45, ease: EASE_IN_OUT }}
+            className="max-w-6xl mx-auto rounded-2xl border"
           >
             <div className="px-5 py-3.5 flex justify-between items-center">
               {/* Logo */}
@@ -374,52 +391,56 @@ export default function Home() {
                 whileTap={{ scale: 0.97 }}
               >
                 <div className="relative w-9 h-9 flex-shrink-0">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#720C6B] to-[#E01A9E] rounded-xl blur-md opacity-50 group-hover:opacity-80 transition-opacity duration-300" />
-                  <div className="relative w-9 h-9 bg-gradient-to-br from-[#720C6B] to-[#E01A9E] rounded-xl flex items-center justify-center shadow-lg shadow-purple-950/40">
-                    <span className="font-heading text-base font-bold">A</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#7B337E] to-[#6667AB] rounded-xl blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-350" />
+                  <div className="relative w-9 h-9 bg-gradient-to-br from-[#7B337E] to-[#6667AB] rounded-xl flex items-center justify-center">
+                    <span className="font-heading text-[15px] font-bold text-[#F5D5E0]">A</span>
                   </div>
                 </div>
-                <span className="font-heading text-[1.1rem] font-semibold tracking-wide hidden sm:block text-white/90 group-hover:text-white transition-colors duration-200">
+                <span className="font-heading text-[1.05rem] font-semibold tracking-wide hidden sm:block text-[#F5D5E0]/75 group-hover:text-[#F5D5E0] transition-colors duration-250">
                   Anagha MR
                 </span>
               </motion.button>
 
               {/* Desktop links */}
-              <div className="hidden md:flex items-center gap-7">
+              <div className="hidden md:flex items-center gap-8">
                 {NAV_ITEMS.map(item => (
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
                     className="relative font-body text-[13px] font-medium group py-1"
                   >
-                    <span className={`transition-colors duration-250 ${
-                      activeSection === item.id ? 'text-white' : 'text-gray-500 group-hover:text-gray-200'
+                    <span className={`transition-colors duration-300 ${
+                      activeSection === item.id
+                        ? 'text-[#F5D5E0]'
+                        : 'text-[#F5D5E0]/45 group-hover:text-[#F5D5E0]/82'
                     }`}>
                       {item.label}
                     </span>
-                    {/* gradient underline */}
-                    <span className={`absolute -bottom-0.5 left-0 h-px bg-gradient-to-r from-[#720C6B] to-[#E01A9E] transition-all duration-300 ${
-                      activeSection === item.id ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'
-                    }`} />
+                    <motion.span
+                      className="absolute -bottom-0.5 left-0 h-px w-full bg-gradient-to-r from-[#7B337E] to-[#6667AB]"
+                      style={{ originX: 0 }}
+                      animate={{ scaleX: activeSection === item.id ? 1 : 0 }}
+                      transition={{ duration: 0.35, ease: EASE_OUT_EXPO }}
+                    />
                   </button>
                 ))}
               </div>
 
               {/* Mobile hamburger */}
               <button
-                className="md:hidden w-9 h-9 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+                className="md:hidden w-9 h-9 flex items-center justify-center text-[#F5D5E0]/48 hover:text-[#F5D5E0] transition-colors duration-250"
                 onClick={() => setMenuOpen(o => !o)}
                 aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={menuOpen}
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {menuOpen ? (
-                    <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.16 }}>
-                      <X className="w-5 h-5" />
+                    <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.18 }}>
+                      <X className="w-[18px] h-[18px]" />
                     </motion.span>
                   ) : (
-                    <motion.span key="m" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.16 }}>
-                      <Menu className="w-5 h-5" />
+                    <motion.span key="m" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.18 }}>
+                      <Menu className="w-[18px] h-[18px]" />
                     </motion.span>
                   )}
                 </AnimatePresence>
@@ -433,16 +454,16 @@ export default function Home() {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.26, ease: EASE_OUT_EXPO }}
-                  className="overflow-hidden md:hidden border-t border-white/[0.06]"
+                  transition={{ duration: 0.3, ease: EASE_OUT_EXPO }}
+                  className="overflow-hidden md:hidden border-t border-[#7B337E]/14"
                 >
                   <div className="px-5 py-5 flex flex-col gap-5">
                     {NAV_ITEMS.map(item => (
                       <button
                         key={item.id}
                         onClick={() => scrollTo(item.id)}
-                        className={`font-body text-sm font-medium text-left transition-colors duration-200 ${
-                          activeSection === item.id ? 'text-[#E01A9E]' : 'text-gray-400 hover:text-white'
+                        className={`font-body text-sm font-medium text-left transition-colors duration-250 ${
+                          activeSection === item.id ? 'text-[#6667AB]' : 'text-[#F5D5E0]/48 hover:text-[#F5D5E0]'
                         }`}
                       >
                         {item.label}
@@ -459,71 +480,70 @@ export default function Home() {
         <section
           id="home"
           ref={heroRef}
-          className="min-h-screen flex items-center justify-center pt-28 pb-20 px-6 relative overflow-hidden"
+          className="min-h-screen flex items-center justify-center pt-28 pb-24 px-6 relative overflow-hidden"
         >
           {/* ambient radial bg */}
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-[#720C6B]/8 rounded-full blur-[120px]" />
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#E01A9E]/5 rounded-full blur-[100px]" />
+            <div className="absolute top-1/4 left-1/3 w-[520px] h-[520px] bg-[#7B337E]/8 rounded-full blur-[140px]" />
+            <div className="absolute bottom-1/3 right-1/4 w-[380px] h-[380px] bg-[#6667AB]/7 rounded-full blur-[110px]" />
           </div>
 
           <motion.div
             style={reduceMotion ? {} : { y: heroY, opacity: heroOp }}
             className="max-w-6xl w-full relative z-10"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
               {/* ─ Left: Text ─ */}
-              <motion.div
-                variants={stagger}
-                initial="hidden"
-                animate="show"
-                className="space-y-9"
-              >
-                <motion.div variants={rv.fadeIn} className="flex items-center gap-3">
-                  <div className="h-px w-7 bg-gradient-to-r from-[#720C6B] to-[#E01A9E]" />
-                  <span className="font-body text-[10.5px] uppercase tracking-[0.26em] text-[#E01A9E]">
+              <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-10">
+                <motion.div variants={rv.fadeIn} className="flex items-center gap-3.5">
+                  <div className="h-px w-10 bg-gradient-to-r from-[#7B337E] to-[#6667AB]" />
+                  <span className="font-body text-[10.5px] uppercase tracking-[0.28em] text-[#6667AB]">
                     AI &amp; ML Engineer
                   </span>
                 </motion.div>
 
-                <div className="space-y-5">
+                <div className="space-y-6">
                   <motion.h1
                     variants={rv.fadeUp}
-                    className="font-heading font-bold leading-[0.86] tracking-tight
+                    className="font-heading font-bold leading-[0.88] tracking-tight
                       text-[3.4rem] xs:text-[4rem] sm:text-[5.5rem] lg:text-[7.5rem]"
                   >
                     Port<span className="gradient-text">folio</span>
                   </motion.h1>
                   <motion.p
                     variants={rv.fadeUp}
-                    className="font-body text-[0.95rem] sm:text-base text-gray-400 leading-[1.75] max-w-[420px]"
+                    className="font-body text-[0.95rem] sm:text-[1rem] text-[#F5D5E0]/62 leading-[1.78] max-w-[400px]"
                   >
                     AI &amp; ML-focused Computer Science student building intelligent, user-centric
                     applications using generative AI and computer vision.
                   </motion.p>
                 </div>
 
-                <motion.div variants={rv.fadeUp} className="flex flex-wrap gap-3 pt-0.5">
+                <motion.div variants={rv.fadeUp} className="flex flex-wrap gap-3">
                   {/* Primary CTA */}
                   <motion.button
                     onClick={() => scrollTo('projects')}
                     whileTap={{ scale: 0.97 }}
-                    className="btn-sweep group relative px-7 py-3.5 bg-gradient-to-r from-[#720C6B] to-[#E01A9E] rounded-xl font-body font-semibold text-sm overflow-hidden shadow-lg shadow-purple-950/50 hover:shadow-[#720C6B]/50 transition-shadow duration-400"
+                    className="btn-sweep group relative px-7 py-3.5 bg-gradient-to-r from-[#7B337E] to-[#6667AB]
+                      rounded-xl font-body font-semibold text-sm text-[#F5D5E0] overflow-hidden
+                      shadow-lg shadow-[#210635]/60 hover:shadow-[#7B337E]/35 transition-shadow duration-400"
                   >
                     <span className="relative z-10 flex items-center gap-2">
                       View My Work
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
-                    {/* reverse gradient on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#E01A9E] to-[#720C6B] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#6667AB] to-[#7B337E] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
                   </motion.button>
 
                   {/* Ghost CTA */}
                   <motion.button
                     onClick={() => scrollTo('get-in-touch')}
                     whileTap={{ scale: 0.97 }}
-                    className="px-7 py-3.5 rounded-xl font-body font-medium text-sm border border-white/10 text-gray-400 hover:text-white hover:border-white/22 hover:bg-white/[0.04] transition-all duration-300"
+                    className="px-7 py-3.5 rounded-xl font-body font-medium text-sm
+                      border border-[#F5D5E0]/10 text-[#F5D5E0]/52
+                      hover:text-[#F5D5E0]/90 hover:border-[#F5D5E0]/20 hover:bg-[#F5D5E0]/[0.04]
+                      transition-all duration-300"
                   >
                     Get in touch
                   </motion.button>
@@ -537,45 +557,45 @@ export default function Home() {
                 animate="show"
                 className="relative flex justify-center lg:justify-end"
               >
-                <div className="relative w-full max-w-[320px] sm:max-w-[360px]">
-                  {/* soft ambient glow behind image */}
-                  <div aria-hidden="true" className="absolute -inset-8 bg-gradient-to-br from-[#720C6B]/20 to-[#E01A9E]/12 rounded-3xl blur-3xl" />
+                <div className="relative w-full max-w-[310px] sm:max-w-[350px]">
+                  {/* ambient glow behind image */}
+                  <div aria-hidden="true" className="absolute -inset-10 bg-gradient-to-br from-[#7B337E]/18 to-[#6667AB]/12 rounded-3xl blur-3xl" />
 
                   {/* animated gradient border */}
-                  <div className="relative p-px rounded-2xl animated-border shadow-2xl shadow-purple-950/50">
-                    <div className="rounded-[15px] overflow-hidden bg-[#111111]">
+                  <div className="relative p-px rounded-2xl animated-border shadow-2xl shadow-[#210635]/70">
+                    <div className="rounded-[15px] overflow-hidden bg-[#210635]">
                       <img
                         src="/2-21.webp"
                         alt="Anagha MR"
                         className="w-full h-full object-cover"
                         loading="eager"
                       />
-                      {/* bottom fade */}
-                      <div className="absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-[#111111]/60 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-[#210635]/55 to-transparent" />
                     </div>
                   </div>
 
                   {/* floating badge — top-right */}
                   <motion.div
                     animate={reduceMotion ? {} : { y: [0, -8, 0] }}
-                    transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut' }}
-                    className="absolute -top-5 -right-4 sm:-right-6 glass border border-white/[0.09] rounded-xl px-3.5 py-2.5 shadow-xl shadow-black/40"
+                    transition={{ repeat: Infinity, duration: 4.8, ease: 'easeInOut' }}
+                    className="absolute -top-5 -right-4 sm:-right-6 glass border border-[#F5D5E0]/10 rounded-xl px-3.5 py-2.5 shadow-xl shadow-[#210635]/50"
                   >
                     <div className="flex items-center gap-2">
-                      <div className="w-[7px] h-[7px] rounded-full bg-[#E01A9E]" style={{ boxShadow: '0 0 6px rgba(224,26,158,0.8)' }} />
-                      <span className="font-body text-[11px] font-medium text-gray-200">AI &amp; ML</span>
+                      <div className="w-2 h-2 rounded-full bg-[#6667AB] flex-shrink-0"
+                        style={{ boxShadow: '0 0 6px rgba(102,103,171,0.8)' }} />
+                      <span className="font-body text-[11px] font-medium text-[#F5D5E0]/80">AI &amp; ML</span>
                     </div>
                   </motion.div>
 
                   {/* floating badge — bottom-left */}
                   <motion.div
                     animate={reduceMotion ? {} : { y: [0, 8, 0] }}
-                    transition={{ repeat: Infinity, duration: 5.2, ease: 'easeInOut', delay: 0.7 }}
-                    className="absolute -bottom-5 -left-4 sm:-left-6 glass border border-white/[0.09] rounded-xl px-3.5 py-2.5 shadow-xl shadow-black/40"
+                    transition={{ repeat: Infinity, duration: 5.4, ease: 'easeInOut', delay: 0.9 }}
+                    className="absolute -bottom-5 -left-4 sm:-left-6 glass border border-[#F5D5E0]/10 rounded-xl px-3.5 py-2.5 shadow-xl shadow-[#210635]/50"
                   >
-                    <div className="flex items-center gap-2">
-                      <span className="font-body text-[11px] text-gray-500">Projects</span>
-                      <span className="font-heading text-sm font-bold gradient-text">5+</span>
+                    <div className="flex items-center gap-2.5">
+                      <span className="font-body text-[11px] text-[#F5D5E0]/42">Projects</span>
+                      <span className="font-heading text-sm font-bold gradient-text">6+</span>
                     </div>
                   </motion.div>
                 </div>
@@ -588,18 +608,18 @@ export default function Home() {
             aria-label="Scroll to About section"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.8, duration: 0.8 }}
+            transition={{ delay: 1.8, duration: 0.9 }}
             className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group"
             onClick={() => scrollTo('about')}
           >
-            <span className="font-body text-[9.5px] uppercase tracking-[0.25em] text-gray-600 group-hover:text-gray-400 transition-colors duration-300">
+            <span className="font-body text-[9px] uppercase tracking-[0.28em] text-[#F5D5E0]/28 group-hover:text-[#F5D5E0]/52 transition-colors duration-350">
               Scroll
             </span>
             <motion.div
-              animate={reduceMotion ? {} : { y: [0, 6, 0] }}
-              transition={{ repeat: Infinity, duration: 1.7, ease: 'easeInOut' }}
+              animate={reduceMotion ? {} : { y: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
             >
-              <ChevronDown className="w-4 h-4 text-[#720C6B]/70 group-hover:text-[#E01A9E] transition-colors duration-300" />
+              <ChevronDown className="w-4 h-4 text-[#7B337E]/60 group-hover:text-[#6667AB] transition-colors duration-350" />
             </motion.div>
           </motion.button>
 
@@ -609,10 +629,10 @@ export default function Home() {
         {/* ══════════════════ ABOUT ════════════════════════════ */}
         <section
           id="about"
-          className="min-h-screen flex items-center justify-center py-28 px-6 relative overflow-hidden"
+          className="min-h-screen flex items-center justify-center py-32 px-6 relative overflow-hidden"
         >
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#720C6B]/7 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-56 bg-gradient-to-b from-[#7B337E]/6 to-transparent" />
           </div>
 
           <SectionReveal className="max-w-4xl w-full relative z-10">
@@ -620,18 +640,18 @@ export default function Home() {
 
             <motion.h2
               variants={rv.fadeUp}
-              className="font-heading text-[3.4rem] sm:text-[4.2rem] lg:text-[4.8rem] font-bold mb-9 leading-[0.94]"
+              className="font-heading text-[3.6rem] sm:text-[4.4rem] lg:text-[5rem] font-bold mb-10 leading-[0.92] text-[#F5D5E0]"
             >
               About
             </motion.h2>
 
-            <motion.div variants={rv.fadeUp} className="max-w-3xl space-y-5 mb-10">
-              <p className="font-body text-[1rem] text-gray-300 leading-[1.82]">
+            <motion.div variants={rv.fadeUp} className="max-w-[680px] space-y-5 mb-12">
+              <p className="font-body text-[1rem] text-[#F5D5E0]/72 leading-[1.82]">
                 Computer Science undergraduate specialising in Artificial Intelligence and Machine Learning,
                 with experience building scalable, data-driven applications. Skilled in developing end-to-end
                 systems using generative AI, computer vision, and optimisation techniques to solve real-world problems.
               </p>
-              <p className="font-body text-[1rem] text-gray-400/90 leading-[1.82]">
+              <p className="font-body text-[1rem] text-[#F5D5E0]/52 leading-[1.82]">
                 Proficient in Python, TensorFlow, OpenCV, and modern generative AI frameworks such as
                 Stable Diffusion, CLIP, and ControlNet, with a strong focus on system design, automation,
                 and enhancing user experience.
@@ -639,15 +659,15 @@ export default function Home() {
             </motion.div>
 
             {/* Skills */}
-            <motion.div variants={staggerFast} className="flex flex-wrap gap-2">
+            <motion.div variants={staggerFast} className="flex flex-wrap gap-2.5">
               {SKILLS.map((skill, i) => (
                 <motion.span
                   key={i}
                   variants={rv.scaleIn}
                   className="font-body text-[11px] font-medium px-3.5 py-1.5 rounded-full
-                    border border-[#720C6B]/22 text-gray-500 bg-[#720C6B]/6
-                    hover:bg-[#720C6B]/15 hover:border-[#E01A9E]/40 hover:text-gray-300
-                    transition-all duration-300 cursor-default select-none"
+                    border border-[#7B337E]/20 text-[#F5D5E0]/48 bg-[#7B337E]/7
+                    hover:bg-[#7B337E]/15 hover:border-[#6667AB]/38 hover:text-[#F5D5E0]/78
+                    transition-all duration-350 cursor-default select-none"
                 >
                   {skill}
                 </motion.span>
@@ -659,23 +679,23 @@ export default function Home() {
         </section>
 
         {/* ══════════════════ PROJECTS ═════════════════════════ */}
-        <section id="projects" className="py-28 px-6 relative overflow-hidden">
+        <section id="projects" className="py-32 px-6 relative overflow-hidden">
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#3A0C0C]/5 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#420D4B]/6 to-transparent" />
           </div>
 
           <div className="max-w-6xl mx-auto relative z-10">
-            <SectionReveal className="mb-14">
+            <SectionReveal className="mb-16">
               <SectionLabel>Work</SectionLabel>
               <motion.h2
                 variants={rv.fadeUp}
-                className="font-heading text-[3.4rem] sm:text-[4.2rem] lg:text-[4.8rem] font-bold leading-[0.94]"
+                className="font-heading text-[3.6rem] sm:text-[4.4rem] lg:text-[5rem] font-bold leading-[0.92] text-[#F5D5E0]"
               >
                 Projects
               </motion.h2>
             </SectionReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
               {PROJECTS.map((project, i) => (
                 <ProjectCard key={i} project={project} index={i} reduceMotion={reduceMotion} />
               ))}
@@ -688,18 +708,18 @@ export default function Home() {
         {/* ══════════════════ EDUCATION ════════════════════════ */}
         <section
           id="education"
-          className="min-h-screen flex items-center justify-center py-28 px-6 relative overflow-hidden"
+          className="min-h-screen flex items-center justify-center py-32 px-6 relative overflow-hidden"
         >
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#720C6B]/6 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-56 bg-gradient-to-b from-[#7B337E]/6 to-transparent" />
           </div>
 
           <div className="max-w-4xl w-full relative z-10">
-            <SectionReveal className="mb-14">
+            <SectionReveal className="mb-16">
               <SectionLabel>Academic</SectionLabel>
               <motion.h2
                 variants={rv.fadeUp}
-                className="font-heading text-[3.4rem] sm:text-[4.2rem] lg:text-[4.8rem] font-bold leading-[0.94]"
+                className="font-heading text-[3.6rem] sm:text-[4.4rem] lg:text-[5rem] font-bold leading-[0.92] text-[#F5D5E0]"
               >
                 Education
               </motion.h2>
@@ -711,46 +731,44 @@ export default function Home() {
                 <div
                   aria-hidden="true"
                   className="absolute left-0 top-4 bottom-4 w-px"
-                  style={{ background: 'linear-gradient(to bottom, #720C6B, rgba(224,26,158,0.3) 60%, transparent)' }}
+                  style={{ background: 'linear-gradient(to bottom, #7B337E, rgba(102,103,171,0.28) 65%, transparent)' }}
                 />
 
                 <div className="space-y-4">
                   {EDUCATION.map((edu, i) => (
-                    <motion.div
-                      key={i}
-                      variants={rv.fadeUp}
-                      className="relative group"
-                    >
+                    <motion.div key={i} variants={rv.fadeUp} className="relative group">
                       {/* timeline dot */}
-                      <div className="absolute -left-[34px] top-7 w-2.5 h-2.5 rounded-full ring-2 ring-[#111111] group-hover:ring-[#720C6B]/25 transition-all duration-300"
-                        style={{ background: 'linear-gradient(135deg, #720C6B, #E01A9E)' }}
+                      <div
+                        className="absolute -left-[34px] top-7 w-2.5 h-2.5 rounded-full ring-2 ring-[#210635] group-hover:ring-[#7B337E]/22 transition-all duration-350"
+                        style={{ background: 'linear-gradient(135deg, #7B337E, #6667AB)' }}
                       />
 
                       <motion.div
-                        whileHover={reduceMotion ? {} : { y: -3, transition: { duration: 0.28, ease: EASE_OUT_EXPO } }}
-                        className="glass border border-[#720C6B]/15 rounded-2xl p-7
-                          hover:border-[#E01A9E]/32 hover:shadow-lg hover:shadow-black/40
+                        whileHover={reduceMotion ? {} : { y: -3, transition: { duration: 0.3, ease: EASE_OUT_EXPO } }}
+                        className="glass border border-[#7B337E]/16 rounded-2xl p-6
+                          hover:border-[#6667AB]/30 hover:shadow-lg hover:shadow-[#210635]/50
                           transition-[border-color,box-shadow] duration-300"
                       >
-                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-2.5">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                           <div>
-                            <h3 className="font-heading text-[1.15rem] font-bold text-white/90 leading-snug">
+                            <h3 className="font-heading text-[1.1rem] font-bold text-[#F5D5E0]/90 leading-snug">
                               {edu.degree}
                             </h3>
                             {edu.field && (
-                              <p className="font-body text-sm text-[#E01A9E]/80 mt-1 font-medium">{edu.field}</p>
+                              <p className="font-body text-[13px] text-[#6667AB] mt-1 font-medium">{edu.field}</p>
                             )}
                           </div>
                           {edu.cgpa && (
-                            <span className="shrink-0 self-start font-body text-[11px] font-semibold px-3 py-1.5 rounded-full border text-[#E01A9E]"
-                              style={{ background: 'rgba(224,26,158,0.08)', borderColor: 'rgba(224,26,158,0.25)' }}
+                            <span
+                              className="shrink-0 self-start font-body text-[11px] font-semibold px-3 py-1.5 rounded-full border text-[#6667AB]"
+                              style={{ background: 'rgba(102,103,171,0.09)', borderColor: 'rgba(102,103,171,0.26)' }}
                             >
                               {edu.cgpa}
                             </span>
                           )}
                         </div>
-                        <p className="font-body text-[13px] text-gray-500 mb-1">{edu.school}</p>
-                        <p className="font-body text-[11px] text-gray-600">{edu.year}</p>
+                        <p className="font-body text-[12.5px] text-[#F5D5E0]/48 mb-1">{edu.school}</p>
+                        <p className="font-body text-[11px] text-[#F5D5E0]/35">{edu.year}</p>
                       </motion.div>
                     </motion.div>
                   ))}
@@ -765,11 +783,11 @@ export default function Home() {
         {/* ══════════════════ CONTACT ══════════════════════════ */}
         <section
           id="get-in-touch"
-          className="min-h-screen flex items-center justify-center py-28 px-6 relative overflow-hidden"
+          className="min-h-screen flex items-center justify-center py-32 px-6 relative overflow-hidden"
         >
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#720C6B]/8 rounded-full blur-[100px]" />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#720C6B]/10 via-transparent to-[#3A0C0C]/10" />
+            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[560px] h-[280px] bg-[#7B337E]/8 rounded-full blur-[110px]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#7B337E]/6 via-transparent to-[#420D4B]/6" />
           </div>
 
           <div className="max-w-2xl w-full relative z-10 text-center">
@@ -778,14 +796,14 @@ export default function Home() {
 
               <motion.h2
                 variants={rv.fadeUp}
-                className="font-heading text-[3.4rem] sm:text-[4.2rem] lg:text-[4.8rem] font-bold mb-5 leading-[0.94]"
+                className="font-heading text-[3.6rem] sm:text-[4.4rem] lg:text-[5rem] font-bold mb-5 leading-[0.92] text-[#F5D5E0]"
               >
                 Get in touch
               </motion.h2>
 
               <motion.p
                 variants={rv.fadeUp}
-                className="font-body text-[0.95rem] text-gray-400 leading-[1.75] max-w-sm mx-auto mb-14"
+                className="font-body text-[0.95rem] text-[#F5D5E0]/58 leading-[1.78] max-w-[340px] mx-auto mb-16"
               >
                 I'm always open to hearing about new projects and opportunities.
                 Feel free to reach out!
@@ -801,25 +819,26 @@ export default function Home() {
                       href={c.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={reduceMotion ? {} : { y: -6, transition: { duration: 0.3, ease: EASE_OUT_EXPO } }}
+                      whileHover={reduceMotion ? {} : { y: -6, transition: { duration: 0.32, ease: EASE_OUT_EXPO } }}
                       whileTap={{ scale: 0.97 }}
-                      className="group relative flex flex-col items-center gap-4 px-8 py-8 rounded-2xl
-                        border border-white/[0.07] glass overflow-hidden
-                        hover:border-[#E01A9E]/35 hover:shadow-xl hover:shadow-black/50
+                      className="group relative flex flex-col items-center gap-4 px-8 py-9 rounded-2xl
+                        border border-[#F5D5E0]/8 glass overflow-hidden
+                        hover:border-[#6667AB]/30 hover:shadow-xl hover:shadow-[#210635]/65
                         transition-[border-color,box-shadow] duration-300"
                     >
                       {/* hover glow */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#720C6B]/7 to-[#E01A9E]/7 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                      <div className="absolute inset-0 bg-gradient-to-b from-[#7B337E]/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 
                       {/* icon container */}
-                      <div className="relative w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300
-                        bg-gradient-to-br from-[#720C6B]/15 to-[#E01A9E]/15 border border-[#720C6B]/22
-                        group-hover:border-[#E01A9E]/40 group-hover:from-[#720C6B]/25 group-hover:to-[#E01A9E]/25"
+                      <div className="relative w-14 h-14 rounded-2xl flex items-center justify-center
+                        bg-gradient-to-br from-[#7B337E]/14 to-[#6667AB]/14 border border-[#7B337E]/20
+                        group-hover:border-[#6667AB]/35 group-hover:from-[#7B337E]/22 group-hover:to-[#6667AB]/22
+                        transition-all duration-350"
                       >
-                        <Icon className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors duration-300" />
+                        <Icon className="w-5 h-5 text-[#F5D5E0]/48 group-hover:text-[#F5D5E0] transition-colors duration-300" />
                       </div>
 
-                      <span className="relative font-heading text-[1.15rem] font-semibold text-white/80 group-hover:text-[#E01A9E] transition-colors duration-300">
+                      <span className="relative font-heading text-[1.05rem] font-semibold text-[#F5D5E0]/75 group-hover:text-[#6667AB] transition-colors duration-300">
                         {c.label}
                       </span>
                     </motion.a>
@@ -831,16 +850,17 @@ export default function Home() {
         </section>
 
         {/* ══════════════════ FOOTER ═══════════════════════════ */}
-        <footer className="py-8 px-6 border-t border-white/[0.05]">
+        <footer className="py-8 px-6 border-t border-[#7B337E]/12">
           <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="font-body text-[11px] text-gray-700">
+            <p className="font-body text-[11px] text-[#F5D5E0]/22">
               © 2026 Anagha MR. All rights reserved.
             </p>
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#720C6B] to-[#E01A9E]"
-                style={{ boxShadow: '0 0 6px rgba(224,26,158,0.5)' }}
+              <div
+                className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#7B337E] to-[#6667AB]"
+                style={{ boxShadow: '0 0 5px rgba(102,103,171,0.45)' }}
               />
-              <span className="font-body text-[11px] text-gray-700">Portfolio</span>
+              <span className="font-body text-[11px] text-[#F5D5E0]/22">Portfolio</span>
             </div>
           </div>
         </footer>

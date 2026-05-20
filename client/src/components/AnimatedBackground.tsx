@@ -29,38 +29,38 @@ export default function AnimatedBackground() {
     resize();
     window.addEventListener('resize', resize);
 
-    // Colour palette: deep purple → hot pink → dark maroon variants
+    // Colour palette: moon palette — deep violet → periwinkle → mauve
     const palette = [
-      { r: 114, g: 12,  b: 107 }, // #720C6B
-      { r: 224, g: 26,  b: 158 }, // #E01A9E
-      { r: 160, g: 16,  b: 128 }, // #A01080
-      { r: 58,  g: 12,  b: 12  }, // #3A0C0C
-      { r: 200, g: 20,  b: 143 }, // #C8148F
-      { r: 90,  g: 8,   b: 85  }, // mid purple
+      { r: 123, g: 51,  b: 126 }, // #7B337E  primary accent
+      { r: 102, g: 103, b: 171 }, // #6667AB  secondary accent
+      { r: 66,  g: 13,  b: 75  }, // #420D4B  deep mauve
+      { r: 155, g: 110, b: 171 }, // #9B6EAB  mid lavender
+      { r: 88,  g: 40,  b: 100 }, // mid violet
+      { r: 80,  g: 80,  b: 150 }, // blue-violet
     ];
 
     const orbs: Orb[] = [];
-    for (let i = 0; i < 14; i++) {
+    for (let i = 0; i < 10; i++) {
       const x = Math.random() * canvas.width;
       const y = Math.random() * canvas.height;
       const col = palette[i % palette.length];
       orbs.push({
         x, y, baseX: x, baseY: y,
-        radius: Math.random() * 120 + 50,
-        opacity: Math.random() * 0.12 + 0.04,
+        radius: Math.random() * 200 + 80,
+        opacity: Math.random() * 0.07 + 0.03,
         r: col.r, g: col.g, b: col.b,
-        speed: Math.random() * 0.25 + 0.08,
+        speed: Math.random() * 0.18 + 0.05,
         angle: Math.random() * Math.PI * 2,
-        drift: Math.random() * 80 + 40,
+        drift: Math.random() * 70 + 30,
       });
     }
 
     let raf: number;
 
     const drawGrid = () => {
-      const spacing = 48;
-      const dotR = 0.8;
-      ctx.fillStyle = 'rgba(114, 12, 107, 0.18)';
+      const spacing = 72;
+      const dotR = 0.65;
+      ctx.fillStyle = 'rgba(102, 103, 171, 0.07)';
       for (let x = 0; x < canvas.width; x += spacing) {
         for (let y = 0; y < canvas.height; y += spacing) {
           ctx.beginPath();
@@ -72,7 +72,7 @@ export default function AnimatedBackground() {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#111111';
+      ctx.fillStyle = '#210635';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       drawGrid();
@@ -108,7 +108,7 @@ export default function AnimatedBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ background: '#111111' }}
+      style={{ background: '#210635' }}
     />
   );
 }

@@ -42,40 +42,51 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* ─── Moon Palette ─────────────────────────────────────────────
+   #210635  Primary background   (deep space violet)
+   #420D4B  Secondary / cards    (deep mauve)
+   #7B337E  Primary accent       (warm purple)
+   #6667AB  Secondary accent     (periwinkle)
+   #F5D5E0  Highlights / text    (blush moonlight)
+──────────────────────────────────────────────────────────────── */
 :root {
-  --primary: #720C6B;
-  --primary-foreground: #ffffff;
-  --sidebar-primary: #720C6B;
-  --sidebar-primary-foreground: #ffffff;
-  --chart-1: #720C6B;
-  --chart-2: #A01080;
-  --chart-3: #C8148F;
-  --chart-4: #E01A9E;
-  --chart-5: #F02BAD;
-  --radius: 0.65rem;
-  --background: #111111;
-  --foreground: #ffffff;
-  --card: #1e1e1e;
-  --card-foreground: #ffffff;
-  --popover: #1e1e1e;
-  --popover-foreground: #ffffff;
-  --secondary: #3A0C0C;
-  --secondary-foreground: #ffffff;
-  --muted: #777777;
-  --muted-foreground: #999999;
-  --accent: #720C6B;
-  --accent-foreground: #ffffff;
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  --border: #2a2a2a;
-  --input: #2a2a2a;
-  --ring: #720C6B;
-  --sidebar: #1e1e1e;
-  --sidebar-foreground: #ffffff;
-  --sidebar-accent: #720C6B;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #2a2a2a;
-  --sidebar-ring: #720C6B;
+  --background:            #210635;
+  --foreground:            #F5D5E0;
+  --card:                  #420D4B;
+  --card-foreground:       #F5D5E0;
+  --popover:               #420D4B;
+  --popover-foreground:    #F5D5E0;
+  --primary:               #7B337E;
+  --primary-foreground:    #F5D5E0;
+  --secondary:             #420D4B;
+  --secondary-foreground:  #F5D5E0;
+  --muted:                 rgba(245, 213, 224, 0.08);
+  --muted-foreground:      rgba(245, 213, 224, 0.48);
+  --accent:                #6667AB;
+  --accent-foreground:     #F5D5E0;
+  --destructive:           #ef4444;
+  --destructive-foreground:#F5D5E0;
+  --border:                rgba(123, 51, 126, 0.22);
+  --input:                 rgba(123, 51, 126, 0.22);
+  --ring:                  #7B337E;
+  --radius:                0.65rem;
+
+  /* chart — moon gradient */
+  --chart-1: #7B337E;
+  --chart-2: #6667AB;
+  --chart-3: #9B6EAB;
+  --chart-4: #B8A4D8;
+  --chart-5: #F5D5E0;
+
+  /* sidebar */
+  --sidebar:                     #420D4B;
+  --sidebar-foreground:          #F5D5E0;
+  --sidebar-primary:             #7B337E;
+  --sidebar-primary-foreground:  #F5D5E0;
+  --sidebar-accent:              #6667AB;
+  --sidebar-accent-foreground:   #F5D5E0;
+  --sidebar-border:              rgba(123, 51, 126, 0.22);
+  --sidebar-ring:                #7B337E;
 }
 
 @layer base {
@@ -107,129 +118,111 @@
     padding-right: 1rem;
   }
 
-  /* fixes flex overflow in older layouts */
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
+  /* fixes flex overflow */
+  .flex { min-height: 0; min-width: 0; }
 
   @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
+    .container { padding-left: 1.5rem; padding-right: 1.5rem; }
   }
-
   @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      max-width: 1280px;
-    }
+    .container { padding-left: 2rem; padding-right: 2rem; max-width: 1280px; }
   }
 }
 
-/* ─── Smooth Scrolling ─────────────────────────────────────── */
-html {
-  scroll-behavior: smooth;
-}
+/* ─── Smooth Scrolling ──────────────────────────────────────── */
+html { scroll-behavior: smooth; }
 
-/* ─── Font System ──────────────────────────────────────────────
-   Heading font: Cormorant Garamond (visual stand-in for Menerva)
-   Body font:    DM Sans            (visual stand-in for Elza)
+/* ─── Font System ───────────────────────────────────────────────
+   Satoshi (from Fontshare) — premium geometric sans-serif.
+   Used for both headings and body. Visual hierarchy achieved
+   through weight, size, and letter-spacing.
 
-   To use the actual Menerva / Elza typefaces:
-   1. Place font files in /public/fonts/
-   2. Add @font-face blocks here with font-family: 'Menerva' / 'Elza'
-   3. They will be picked up automatically by the CSS cascade below.
+   To self-host: place Satoshi files in /public/fonts/ and add
+   @font-face blocks with font-family: 'Satoshi'.
 ──────────────────────────────────────────────────────────────── */
 body {
-  font-family: 'Elza', 'DM Sans', system-ui, sans-serif;
+  font-family: 'Satoshi', 'General Sans', system-ui, sans-serif;
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .font-heading {
-  font-family: 'Menerva', 'Cormorant Garamond', Georgia, serif;
-  letter-spacing: -0.025em;
-  font-feature-settings: 'kern' 1, 'liga' 1;
+  font-family: 'Satoshi', 'General Sans', system-ui, sans-serif;
+  letter-spacing: -0.03em;
+  font-feature-settings: 'kern' 1;
 }
 
 .font-body {
-  font-family: 'Elza', 'DM Sans', system-ui, sans-serif;
+  font-family: 'Satoshi', 'General Sans', system-ui, sans-serif;
   line-height: 1.65;
   font-feature-settings: 'kern' 1;
 }
 
-/* Legacy aliases — keep for backwards compat with any remaining usage */
-.font-inter  { font-family: 'Elza', 'DM Sans', system-ui, sans-serif; }
-.font-jacques { font-family: 'Menerva', 'Cormorant Garamond', Georgia, serif; }
-.font-playfair { font-family: 'Menerva', 'Cormorant Garamond', Georgia, serif; }
+/* Legacy aliases */
+.font-inter    { font-family: 'Satoshi', 'General Sans', system-ui, sans-serif; }
+.font-jacques  { font-family: 'Satoshi', 'General Sans', system-ui, sans-serif; }
+.font-playfair { font-family: 'Satoshi', 'General Sans', system-ui, sans-serif; }
 
-/* ─── Keyframe Animations ──────────────────────────────────── */
+/* ─── Keyframe Animations ───────────────────────────────────── */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(32px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes slideInLeft {
   from { opacity: 0; transform: translateX(-48px); }
   to   { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes slideInRight {
   from { opacity: 0; transform: translateX(48px); }
   to   { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes scaleIn {
   from { opacity: 0; transform: scale(0.92); }
   to   { opacity: 1; transform: scale(1); }
 }
-
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(114, 12, 107, 0.3); }
-  50%       { box-shadow: 0 0 40px rgba(224, 26, 158, 0.5); }
+  0%, 100% { box-shadow: 0 0 20px rgba(123, 51, 126, 0.35); }
+  50%       { box-shadow: 0 0 40px rgba(102, 103, 171, 0.5); }
 }
-
 @keyframes shimmer {
   0%   { background-position: -200% center; }
   100% { background-position:  200% center; }
 }
-
 @keyframes orbFloat {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   33%       { transform: translateY(-18px) rotate(4deg); }
   66%       { transform: translateY(10px) rotate(-3deg); }
 }
-
 @keyframes pulseRing {
   0%   { transform: scale(1);   opacity: 0.6; }
   100% { transform: scale(1.6); opacity: 0; }
 }
-
 @keyframes gradientFlow {
   0%   { background-position: 0%   50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0%   50%; }
 }
-
+@keyframes borderSpin {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
 @keyframes borderPulse {
-  0%, 100% { border-color: rgba(114, 12, 107, 0.3); }
-  50%       { border-color: rgba(224, 26, 158, 0.6); }
+  0%, 100% { border-color: rgba(123, 51, 126, 0.3); }
+  50%       { border-color: rgba(102, 103, 171, 0.55); }
 }
 
-/* ─── Animation Classes ────────────────────────────────────── */
-.animate-fadeInUp    { animation: fadeInUp  0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-.animate-slideInLeft { animation: slideInLeft  0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+/* ─── Animation Classes ─────────────────────────────────────── */
+.animate-fadeInUp     { animation: fadeInUp   0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-slideInLeft  { animation: slideInLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 .animate-slideInRight { animation: slideInRight 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-.animate-scaleIn     { animation: scaleIn   0.5s ease-out forwards; }
-.animate-glow        { animation: glow      3s ease-in-out infinite; }
-.animate-shimmer     { animation: shimmer   2.5s linear infinite; }
-.animate-orbFloat    { animation: orbFloat  6s ease-in-out infinite; }
+.animate-scaleIn      { animation: scaleIn    0.5s ease-out forwards; }
+.animate-glow         { animation: glow       3s ease-in-out infinite; }
+.animate-shimmer      { animation: shimmer    2.5s linear infinite; }
+.animate-orbFloat     { animation: orbFloat   6s ease-in-out infinite; }
 .animate-gradientFlow { animation: gradientFlow 6s ease infinite; background-size: 200% 200%; }
-.animate-borderPulse { animation: borderPulse 3s ease-in-out infinite; }
+.animate-borderPulse  { animation: borderPulse 3s ease-in-out infinite; }
 
 /* Stagger delay helpers */
 .stagger-1 { animation-delay: 0.1s; }
@@ -238,138 +231,115 @@ body {
 .stagger-4 { animation-delay: 0.4s; }
 .stagger-5 { animation-delay: 0.5s; }
 
-/* ─── Glassmorphism Utilities ──────────────────────────────── */
+/* ─── Glassmorphism ─────────────────────────────────────────── */
+/* Glass on the deep purple bg — uses card color at partial opacity */
 .glass {
-  background: rgba(26, 26, 26, 0.6);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(66, 13, 75, 0.52);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
 }
 
 .glass-light {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(245, 213, 224, 0.04);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .glass-nav {
-  background: rgba(15, 15, 15, 0.75);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(20, 3, 38, 0.86);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
 }
 
-/* ─── Typography Utilities ─────────────────────────────────── */
+/* ─── Typography ────────────────────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, #720C6B 0%, #E01A9E 100%);
+  background: linear-gradient(135deg, #F5D5E0 0%, #B8A4D8 52%, #6667AB 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.gradient-text-animated {
-  background: linear-gradient(135deg, #720C6B, #E01A9E, #720C6B);
-  background-size: 200% auto;
+.gradient-text-accent {
+  background: linear-gradient(135deg, #7B337E, #6667AB);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmer 3s linear infinite;
 }
 
-/* ─── Hover Effect Utilities ───────────────────────────────── */
+/* ─── Hover Effects ─────────────────────────────────────────── */
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
 }
 .hover-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(114, 12, 107, 0.25);
+  box-shadow: 0 20px 40px rgba(33, 6, 53, 0.6);
 }
-
 .hover-glow:hover {
-  box-shadow: 0 0 30px rgba(224, 26, 158, 0.35);
+  box-shadow: 0 0 30px rgba(102, 103, 171, 0.4);
 }
 
-/* Shimmer card highlight on hover */
-.shimmer-card {
-  position: relative;
-  overflow: hidden;
-}
+/* ─── Shimmer Card ──────────────────────────────────────────── */
+.shimmer-card { position: relative; overflow: hidden; }
 .shimmer-card::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.04) 50%,
-    transparent 60%
-  );
+  background: linear-gradient(105deg, transparent 40%, rgba(245,213,224,0.04) 50%, transparent 60%);
   background-size: 200% 100%;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-.shimmer-card:hover::after {
-  opacity: 1;
-  animation: shimmer 1.2s ease;
-}
+.shimmer-card:hover::after { opacity: 1; animation: shimmer 1.2s ease; }
 
 /* ─── Scrollbar ─────────────────────────────────────────────── */
 ::-webkit-scrollbar       { width: 4px; }
-::-webkit-scrollbar-track { background: #111111; }
+::-webkit-scrollbar-track { background: #210635; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #720C6B, #E01A9E);
+  background: linear-gradient(180deg, #7B337E, #6667AB);
   border-radius: 2px;
 }
-::-webkit-scrollbar-thumb:hover { background: #A01080; }
+::-webkit-scrollbar-thumb:hover { background: #7B337E; }
 
 /* ─── Selection ─────────────────────────────────────────────── */
 ::selection {
-  background: rgba(114, 12, 107, 0.5);
-  color: #fff;
+  background: rgba(102, 103, 171, 0.5);
+  color: #F5D5E0;
 }
 
 /* ─── Focus Visible ─────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid rgba(224, 26, 158, 0.65);
+  outline: 2px solid rgba(102, 103, 171, 0.7);
   outline-offset: 3px;
   border-radius: 6px;
 }
 
 /* ─── Card Spotlight (mouse-tracking radial glow) ───────────── */
-.card-spotlight {
-  --mx: 50%;
-  --my: 50%;
-}
+.card-spotlight { --mx: 50%; --my: 50%; }
 .card-spotlight::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
   background: radial-gradient(
-    340px circle at var(--mx) var(--my),
-    rgba(255, 255, 255, 0.045),
-    transparent 70%
+    420px circle at var(--mx) var(--my),
+    rgba(245, 213, 224, 0.048),
+    transparent 68%
   );
   opacity: 0;
-  transition: opacity 0.45s ease;
+  transition: opacity 0.5s ease;
   pointer-events: none;
   z-index: 0;
 }
 .card-spotlight:hover::before { opacity: 1; }
 
-/* ─── Button Light Sweep ─────────────────────────────────────── */
-.btn-sweep {
-  position: relative;
-  isolation: isolate;
-}
+/* ─── Button Light Sweep ────────────────────────────────────── */
+.btn-sweep { position: relative; isolation: isolate; }
 .btn-sweep::after {
   content: '';
   position: absolute;
-  inset: 0;
-  top: 0;
-  left: -110%;
-  width: 55%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent);
+  top: 0; left: -110%;
+  width: 55%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(245,213,224,0.18), transparent);
   transform: skewX(-18deg);
   transition: left 0.6s ease;
   pointer-events: none;
@@ -377,47 +347,34 @@ body {
 }
 .btn-sweep:hover::after { left: 160%; }
 
-/* ─── Section Divider ────────────────────────────────────────── */
+/* ─── Section Divider ───────────────────────────────────────── */
 .section-divider {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(114, 12, 107, 0.2) 25%,
-    rgba(224, 26, 158, 0.3) 50%,
-    rgba(114, 12, 107, 0.2) 75%,
+    rgba(123, 51, 126, 0.22) 25%,
+    rgba(102, 103, 171, 0.32) 50%,
+    rgba(123, 51, 126, 0.22) 75%,
     transparent 100%
   );
   pointer-events: none;
 }
 
-/* ─── Animated Gradient Border ───────────────────────────────── */
-@keyframes borderSpin {
-  0%   { background-position: 0%   50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0%   50%; }
-}
+/* ─── Animated Gradient Border ──────────────────────────────── */
 .animated-border {
-  background: linear-gradient(135deg, #720C6B, #E01A9E, #C8148F, #720C6B);
+  background: linear-gradient(135deg, #7B337E, #6667AB, #F5D5E0, #420D4B, #7B337E);
   background-size: 300% 300%;
-  animation: borderSpin 5s ease infinite;
+  animation: borderSpin 6s ease infinite;
 }
 
-/* ─── Reduced Motion ─────────────────────────────────────────── */
+/* ─── Reduced Motion ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .animate-fadeInUp,
-  .animate-slideInLeft,
-  .animate-slideInRight,
-  .animate-scaleIn,
-  .animate-shimmer,
-  .animate-orbFloat,
-  .animate-gradientFlow,
-  .animate-borderPulse,
-  .animated-border {
+  .animate-fadeInUp, .animate-slideInLeft, .animate-slideInRight,
+  .animate-scaleIn, .animate-shimmer, .animate-orbFloat,
+  .animate-gradientFlow, .animate-borderPulse, .animated-border {
     animation: none !important;
   }
   .btn-sweep::after { transition: none !important; }
