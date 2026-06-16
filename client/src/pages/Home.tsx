@@ -110,12 +110,26 @@ const NAV_ITEMS = [
   { label: 'Contact',   id: 'get-in-touch' },
 ];
 
-const SKILLS = [
-  'Python', 'TensorFlow', 'OpenCV', 'Stable Diffusion',
-  'CLIP', 'ControlNet', 'MediaPipe', 'React', 'Next.js',
-  'TypeScript', 'Supabase', 'PostgreSQL', 'REST APIs',
-  'SAM', 'Graph Algorithms', 'Workflow Automation',
-];
+const SKILL_GROUPS = [
+  {
+    label: 'AI & GenAI Systems',
+    skills: [
+      'Stable Diffusion', 'ControlNet', 'CLIP', 'SAM', 'OpenCV',
+      'Temporal RAG', 'LLM Integration', 'Vector Databases', 'Streamlit',
+    ],
+    pill: 'border-[#7B337E]/22 bg-[#7B337E]/8 hover:bg-[#7B337E]/16 hover:border-[#7B337E]/45',
+  },
+  {
+    label: 'Frontend & Product',
+    skills: ['React', 'Next.js', 'TypeScript', 'SaaS Development', 'Product Development'],
+    pill: 'border-[#6667AB]/24 bg-[#6667AB]/8 hover:bg-[#6667AB]/16 hover:border-[#6667AB]/45',
+  },
+  {
+    label: 'Backend & Infrastructure',
+    skills: ['Supabase', 'PostgreSQL', 'REST APIs', 'Workflow Automation', 'Notification Systems', 'Real-time Systems'],
+    pill: 'border-[#9B6EAB]/24 bg-[#9B6EAB]/8 hover:bg-[#9B6EAB]/16 hover:border-[#9B6EAB]/48',
+  },
+] as const;
 
 const PROJECTS = [
   {
@@ -140,6 +154,16 @@ const PROJECTS = [
     tech: ['Next.js', 'React', 'Supabase', 'WhatsApp API'],
     iconGrad: 'from-[#6667AB] to-[#7B337E]',
     glowColor: 'rgba(102,103,171,0.18)',
+  },
+  {
+    title: 'News Story Tracker',
+    subtitle: 'Temporal RAG',
+    role: 'Developer | 2026',
+    description:
+      'Built a Temporal RAG system that tracks how news narratives evolve over time, combining ChromaDB and sentence-transformer embeddings with Groq Llama 3.3 to generate grounded, citation-backed analyses, deployed with Streamlit.',
+    tech: ['ChromaDB', 'Sentence Transformers', 'Groq API', 'RAG', 'Streamlit'],
+    iconGrad: 'from-[#6667AB] to-[#9B6EAB]',
+    glowColor: 'rgba(102,103,171,0.16)',
   },
   {
     title: 'Travel Planner',
@@ -597,7 +621,7 @@ export default function Home() {
                   >
                     <div className="flex items-center gap-2.5">
                       <span className="font-body text-[11px] text-[#F5D5E0]/42">Projects</span>
-                      <span className="font-heading text-sm font-bold gradient-text">6+</span>
+                      <span className="font-heading text-sm font-bold gradient-text">7+</span>
                     </div>
                   </motion.div>
                 </div>
@@ -661,18 +685,29 @@ export default function Home() {
             </motion.div>
 
             {/* Skills */}
-            <motion.div variants={staggerFast} className="flex flex-wrap gap-2.5">
-              {SKILLS.map((skill, i) => (
-                <motion.span
-                  key={i}
-                  variants={rv.scaleIn}
-                  className="font-body text-[11px] font-medium px-3.5 py-1.5 rounded-full
-                    border border-[#7B337E]/20 text-[#F5D5E0]/48 bg-[#7B337E]/7
-                    hover:bg-[#7B337E]/15 hover:border-[#6667AB]/38 hover:text-[#F5D5E0]/78
-                    transition-all duration-350 cursor-default select-none"
-                >
-                  {skill}
-                </motion.span>
+            <motion.div variants={stagger} className="space-y-7">
+              {SKILL_GROUPS.map((group, gi) => (
+                <motion.div key={gi} variants={staggerFast}>
+                  <motion.h4
+                    variants={rv.fadeIn}
+                    className="font-body text-[10.5px] uppercase tracking-[0.2em] text-[#F5D5E0]/35 font-medium mb-3"
+                  >
+                    {group.label}
+                  </motion.h4>
+                  <div className="flex flex-wrap gap-2.5">
+                    {group.skills.map((skill, i) => (
+                      <motion.span
+                        key={i}
+                        variants={rv.scaleIn}
+                        className={`font-body text-[11px] font-medium px-3.5 py-1.5 rounded-full border
+                          text-[#F5D5E0]/50 hover:text-[#F5D5E0]/82
+                          transition-all duration-350 cursor-default select-none ${group.pill}`}
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
               ))}
             </motion.div>
           </SectionReveal>
